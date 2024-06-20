@@ -2,7 +2,10 @@ import '../App.css' ;
 function Square(props) {
     const clickBox = (cell_ID) =>  {
         const  taken  =  ((props.cells[cell_ID]==="") ? 1 : 0)   ;
-        if(props.winner) return ; 
+        if(props.winner) { 
+            window.location.reload() ;  
+            return ;  
+        }
         if(taken)
         {
             if(props.go==="circle")

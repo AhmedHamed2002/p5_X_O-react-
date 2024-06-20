@@ -16,7 +16,16 @@ function App() {
   
   const [cells , setCells] =  useState(['','','','','','','','','']) ; 
   const[go ,  setGo] =  useState("circle") ;
-  const [winner  , setWinner]  =  useState("") ;   
+  const [winner  , setWinner]  =  useState("") ;  
+  
+  let Draw = () => {
+    let flag = 1  ; 
+    for (let  i =0  ; i<9 ; i++)
+    {
+      if(cells[i] === '') flag =0  ;  
+    }
+    return flag ; 
+  }
   
   useEffect(()=>{
     win.forEach((e) => {
@@ -30,7 +39,10 @@ function App() {
       {
         setWinner("cross is winner")  ;  
       }
-
+      else if(Draw())
+      {
+        setWinner("Draw")  ; 
+      }
     });
   },[cells])
   return (
